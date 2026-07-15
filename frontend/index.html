@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>OPTICA — Vision Redefined</title>
+  <meta name="description" content="Premium eyewear crafted for those who see differently. Modern frames, timeless design."/>
+  <link rel="stylesheet" href="css/main.css"/>
+</head>
+<body>
+
+  <!-- Custom Cursor -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Toast Container -->
+  <div class="toast-container"></div>
+
+  <!-- ═══ NAVIGATION ═══════════════════════════════════════════════ -->
+  <nav class="nav">
+    <a href="#" class="nav-logo">
+      <span class="logo-icon"></span>
+      OPTICA
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#collection">Collection</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="nav-icon-btn" onclick="document.getElementById('search-input').focus();document.querySelector('#collection').scrollIntoView({behavior:'smooth'})" title="Search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+      </button>
+      <button class="nav-icon-btn" onclick="openCart()" title="Cart">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+        </svg>
+        <span class="cart-count">0</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ══════════════════════════════════════════════════════ -->
+  <section class="hero" id="home">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-eyebrow">Est. 2026 · Premium Eyewear</div>
+      <h1 class="hero-title">
+        SEE THE WORLD
+        <em>through a different lens</em>
+      </h1>
+      <p class="hero-subtitle">
+        Precision-crafted eyewear for the architecturally minded. Every frame a statement. Every lens a perspective.
+      </p>
+      <div class="hero-actions">
+        <a href="#collection" class="btn btn-primary">
+          <span>Explore Collection</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+        <a href="#featured" class="btn btn-outline">
+          <span>Featured Frames</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- 3D Floating Glasses -->
+    <div class="hero-visual">
+      <div class="glasses-3d"></div>
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE ════════════════════════════════════════════════════ -->
+  <div class="marquee-section">
+    <div class="marquee-track">
+      <span class="marquee-item">Italian Acetate</span>
+      <span class="marquee-item">Titanium Frames</span>
+      <span class="marquee-item">Polarized Lenses</span>
+      <span class="marquee-item">UV400 Protection</span>
+      <span class="marquee-item">Handcrafted</span>
+      <span class="marquee-item">Limited Editions</span>
+      <span class="marquee-item">Free Returns</span>
+      <span class="marquee-item">2-Year Warranty</span>
+      <!-- Duplicate for seamless loop -->
+      <span class="marquee-item">Italian Acetate</span>
+      <span class="marquee-item">Titanium Frames</span>
+      <span class="marquee-item">Polarized Lenses</span>
+      <span class="marquee-item">UV400 Protection</span>
+      <span class="marquee-item">Handcrafted</span>
+      <span class="marquee-item">Limited Editions</span>
+      <span class="marquee-item">Free Returns</span>
+      <span class="marquee-item">2-Year Warranty</span>
+    </div>
+  </div>
+
+  <!-- ═══ STATS ══════════════════════════════════════════════════════ -->
+  <div class="container">
+    <div class="stats-bar reveal">
+      <div class="stat-item">
+        <span class="stat-number" id="stat-products">0</span>
+        <span class="stat-label">Frames</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="stat-categories">0</span>
+        <span class="stat-label">Categories</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="stat-orders">0</span>
+        <span class="stat-label">Orders Shipped</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number" id="stat-brands">0</span>
+        <span class="stat-label">House Brand</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ FEATURED ══════════════════════════════════════════════════ -->
+  <section class="featured-section" id="featured">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Curated Selection</div>
+        <h2>FEATURED FRAMES</h2>
+        <p style="max-width:480px;margin:0 auto;margin-top:16px">
+          Hand-selected from our collection. Each frame chosen for its uncompromising design and exceptional craft.
+        </p>
+      </div>
+
+      <div class="products-grid" id="featured-grid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ COLLECTION ════════════════════════════════════════════════ -->
+  <section class="catalogue-section" id="collection">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Full Catalogue</div>
+        <h2>THE COLLECTION</h2>
+      </div>
+
+      <!-- Search + Filters -->
+      <div class="reveal">
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px;background:var(--grey-800);border:1px solid var(--grey-700);border-radius:var(--radius-full);padding:12px 24px">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--grey-500)" stroke-width="1.5">
+            <circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/>
+          </svg>
+          <input id="search-input" type="text" placeholder="Search frames, categories, styles…"
+            style="flex:1;background:none;border:none;outline:none;font-family:var(--font-mono);font-size:0.8rem;color:white;letter-spacing:0.05em;"
+          />
+        </div>
+
+        <div class="filter-bar">
+          <button class="filter-chip active" data-filter="all">All</button>
+          <button class="filter-chip" data-filter="eyeglasses">Eyeglasses</button>
+          <button class="filter-chip" data-filter="sunglasses">Sunglasses</button>
+          <button class="filter-chip" data-filter="sport">Sport</button>
+        </div>
+      </div>
+
+      <div class="products-grid" id="products-grid">
+        <!-- Filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ══════════════════════════════════════════════ -->
+  <section class="testimonials-section" id="about">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-tag">Customer Stories</div>
+        <h2>THROUGH THEIR EYES</h2>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card reveal reveal-delay-1">
+          <div class="testimonial-stars">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+          </div>
+          <p class="testimonial-text">"These frames completely transformed how I look at eyewear. The Obsidian Frame is genuinely perfect — lightweight, architectural, and the build quality is unlike anything at this price."</p>
+          <div class="testimonial-author">Marco R. · New York</div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-2">
+          <div class="testimonial-stars">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+          </div>
+          <p class="testimonial-text">"I've owned luxury eyewear from all the major houses. Optica matches them in craft but has something they don't — a genuine point of view. The Glacier Aviator is my daily driver now."</p>
+          <div class="testimonial-author">James K. · London</div>
+        </div>
+
+        <div class="testimonial-card reveal reveal-delay-3">
+          <div class="testimonial-stars">
+            <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+          </div>
+          <p class="testimonial-text">"The Phantom Round gets more compliments than any accessory I own. Beautifully minimal, impossibly light. The design team at Optica clearly thinks about frames differently."</p>
+          <div class="testimonial-author">Sofia M. · Paris</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ NEWSLETTER ════════════════════════════════════════════════ -->
+  <section class="newsletter-section" id="contact">
+    <div class="container" style="text-align:center">
+      <div class="section-tag reveal">Stay Ahead</div>
+      <h2 class="reveal" style="color:black;margin-top:16px">NEW ARRIVALS FIRST</h2>
+      <p class="reveal" style="max-width:400px;margin:16px auto 0">
+        Join the inner circle. First access to new frames, exclusive drops, and members-only pricing.
+      </p>
+      <form class="newsletter-form reveal" onsubmit="handleNewsletter(event)">
+        <input class="newsletter-input" type="email" placeholder="your@email.com" required/>
+        <button class="newsletter-btn" type="submit">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ════════════════════════════════════════════════════ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="#" class="nav-logo" style="font-size:1.4rem;display:inline-flex;gap:8px;margin-bottom:16px">
+            <span class="logo-icon"></span> OPTICA
+          </a>
+          <p>Precision eyewear for those who see differently. Crafted from the world's finest materials. Designed without compromise.</p>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Collection</div>
+          <ul class="footer-links">
+            <li><a href="#collection" onclick="document.querySelector('[data-filter=eyeglasses]').click()">Eyeglasses</a></li>
+            <li><a href="#collection" onclick="document.querySelector('[data-filter=sunglasses]').click()">Sunglasses</a></li>
+            <li><a href="#collection" onclick="document.querySelector('[data-filter=sport]').click()">Sport</a></li>
+            <li><a href="#featured">Featured</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="#">About Optica</a></li>
+            <li><a href="#">Craftsmanship</a></li>
+            <li><a href="#">Sustainability</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Support</div>
+          <ul class="footer-links">
+            <li><a href="#">Frame Guide</a></li>
+            <li><a href="#">Returns</a></li>
+            <li><a href="#">Warranty</a></li>
+            <li><a href="#">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <span>© 2024 Optica. All rights reserved.</span>
+        <span style="letter-spacing:0.2em">VISION REDEFINED</span>
+        <span>Privacy · Terms</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ═══ PRODUCT MODAL ══════════════════════════════════════════════ -->
+  <div id="modal-overlay" class="modal-overlay" onclick="if(event.target===this)closeModal()">
+    <!-- Filled by JS -->
+  </div>
+
+  <!-- ═══ CART SIDEBAR ══════════════════════════════════════════════ -->
+  <div id="cart-sidebar" class="cart-sidebar">
+    <div class="cart-header">
+      <div class="cart-title">YOUR CART</div>
+      <button class="nav-icon-btn" onclick="closeCart()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <div class="cart-empty">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" opacity="0.3">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/>
+        </svg>
+        <p style="font-size:0.85rem">Your cart is empty</p>
+      </div>
+    </div>
+
+    <div class="cart-footer">
+      <div class="cart-total">
+        <span class="cart-total-label">Total</span>
+        <span class="cart-total-price" id="cart-total-price">$0.00</span>
+      </div>
+      <button class="btn btn-primary" onclick="checkout()" style="width:100%;justify-content:center">
+        <span>Checkout</span>
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+  <script>
+    function handleNewsletter(e) {
+      e.preventDefault();
+      showToast('Welcome to the inner circle');
+      e.target.reset();
+    }
+  </script>
+</body>
+</html>
